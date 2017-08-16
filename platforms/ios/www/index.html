@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8" />
+        <meta name="format-detection" content="telephone=no" />
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet"  href="css/themes/default/jquery.mobile-1.3.2.min.css" />
+        <title>Hello World</title>
+        
+        <style>
+			table { width:100%; border-bottom: 1px solid #ccc; border-spacing: 0; }
+			th { text-align:left; margin-right:50px; display:none; }
+			th h3 { margin:.6em 0; }
+			th, td { vertical-align:top; border-top:1px solid #ccc; padding: 4px 10px; }
+		</style>
+    </head>
+    <body>
+    
+    
+    	<div data-role="page" id="homePage">
+		    <div data-theme="" data-role="header">
+		        <h3>PWD</h3>
+		    </div>
+		 
+		    <div data-role="content">
+		        <a data-role="button" href="" id="btnNewPassoword" data-icon="plus" data-iconpos="left">Nuova Password</a>
+		        <a data-role="button" href="" id="btnListPasswords" data-icon="bars" data-iconpos="left">Elenco Password</a>
+		    </div>
+		 
+		    <div data-theme="a" data-role="footer" data-position="fixed">
+		        <h3>Generatore di password</h3>
+		    </div>
+		</div>
+    
+        <div data-role="page" id="nuovapassword">
+		    <div data-theme="" data-role="header">
+				<h1>PWD</h1>
+		    	<a id="btnBack" data-role="button" href="#homePage" data-icon="home" data-iconpos="notext"></a>
+		        
+		    </div>
+		 
+		     <div data-role="content">
+		       
+
+					<ul id="liNewPassword" data-role="listview" data-divider-theme="d" data-inset="true" data-icon="false" data-split-icon="delete">
+						<li data-role="list-divider" role="heading">Alias</li>
+						<li data-theme="c">
+							<input type="text" name="txtAlias" id="txtAlias" placeholder="pc, ebay, google" data-mini="true" />
+						</li>
+						<li data-role="list-divider" role="heading">Preferenze</li>
+						<li data-theme="c">
+							<input type="text" name="length" id="length" placeholder="lunghezza password" data-mini="true" />
+						</li>
+						<li data-theme="c">
+							<fieldset class="ui-grid-a">
+								<div class="ui-block-a">
+									<input type="checkbox" name="chkUpper" id="chkUpper" data-mini="true" />
+									<label for="chkUpper">[A-Z]</label>
+								</div>
+								<div class="ui-block-b">
+									<input type="checkbox" name="chkLower" checked id="chkLower" data-mini="true"/>
+									<label for="chkLower">[a-z]</label>
+								</div>
+							</fieldset>
+						</li>
+						<li data-theme="c">
+							<fieldset class="ui-grid-a">
+								<div class="ui-block-a">
+									<input type="checkbox" name="chkDigits" id="chkDigits" data-mini="true"/>
+									<label for="chkDigits">[0-9]</label>
+								</div>
+								<div class="ui-block-b">
+									<input type="checkbox" name="chkSpecial" id="chkSpecial" data-mini="true" />
+									<label for="chkSpecial">Speciali</label>
+								</div>
+							</fieldset>
+						</li>
+						
+					</ul>
+					<a data-role="button" id="btnGenerate">Genera</a>
+					
+		    </div>
+		 
+		    <div data-theme="a" data-role="footer" data-position="fixed">
+		        <h3>Generatore di password</h3>
+		    </div>
+		</div>
+
+
+		<div data-role="page" id="elencopassword">
+		    <div data-theme="" data-role="header">
+		        <h1>PWD</h1>
+		    	<a id="btnBack" data-role="button" href="#homePage" data-icon="home" data-iconpos="notext"></a>
+		    </div>
+		 
+		    <div data-role="content">
+		        <ul id="liElencoSchede" data-role="listview" data-divider-theme="d" data-inset="true" data-icon="false" data-split-icon="delete">
+		        	<li id="mettielenco" data-role="list-divider" role="heading">Schede</li>
+		        </ul>
+		    </div>
+		     
+		    <div data-theme="a" data-role="footer" data-position="fixed">
+		       <h3>Generatore di password</h3>
+		    </div>
+		</div>
+		
+		<div data-role="dialog" id="dlgSavePassword"> 
+            <div data-role="header" data-position="fixed">
+                <h2>PassWD</h2>
+            </div> 
+            
+            <div data-role="content" data-theme="c">
+				<ul id="liNewPassword" data-role="listview" data-divider-theme="d" data-inset="true" data-icon="false">
+					<li data-role="list-divider" role="heading">Password</li>
+						<li data-theme="c">
+							 <input type="text" name="txtPassword" id="txtPassword" data-mini="true" />
+						</li>
+				</ul>
+				<a data-role="button" id="btnReGenerate" data-mini="true">Rigenera</a>
+				<a data-role="button" id="btnSave" data-mini="true">Salva</a>
+            </div>
+        </div>
+		
+		<div data-role="dialog" id="dlgDeletePassword"> 
+            <div data-role="header" data-position="fixed">
+                <h2>PassWD</h2>
+            </div> 
+            
+            <div data-role="content" data-theme="c">
+				<a data-role="button" id="btnDeleteConfirm" data-mini="true">Conferma</a>
+				<a data-role="button" id="btnDeleteCancel" data-mini="true">Annulla</a>
+            </div>
+        </div>
+		
+        <!--script type="text/javascript" src="cordova.js"></script-->
+        <script type="text/javascript" src="js/jquery-1.8.3.min.js"></script>
+        <script type="text/javascript" src="js/jquery.mobile-1.3.2.js"></script>
+        <script type="text/javascript" src="js/index.js"></script>
+        <script type="text/javascript">
+            app.initialize();
+        </script>
+    </body>
+</html>
